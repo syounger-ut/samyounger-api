@@ -5,8 +5,12 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'jbuilder', '~> 2.5'
 gem 'rack-cors'
-gem 'bcrypt', '~> 3.1.7'
 gem 'active_model_serializers'
+
+# Authentication
+gem 'bcrypt', '~> 3.1.7'
+gem 'jwt'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 
