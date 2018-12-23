@@ -12,6 +12,9 @@ gem 'bootsnap'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 
+# Cloud Storage
+gem "aws-sdk-s3", require: false
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 
