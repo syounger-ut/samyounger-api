@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :posts
+  has_one_attached :avatar
+
+  # Validations
   validates :username, presence: true, uniqueness: true
 
   def full_name
