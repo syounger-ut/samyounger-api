@@ -21,6 +21,10 @@ class AuthenticationsController < ApplicationController
     end
   end
 
+  def authenticate
+    render json: { token: token, user: UserSerializer.new(current_user) }, status: :ok
+  end
+
   private
 
   def user_params
