@@ -1,8 +1,10 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :full_name, :email, :avatar_url
+  include Rails.application.routes.url_helpers
+  attributes :id, :first_name, :last_name,
+             :full_name, :email, :avatar_url
 
   def avatar_url
-    instance_options[:avatar_url]
+    rails_blob_path(object.avatar, only_path: true)
   end
 
   def full_name
