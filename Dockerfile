@@ -3,6 +3,7 @@ FROM ruby:2.5.1-alpine
 ENV BUNDLER_VERSION=2.1.4
 
 RUN apk add --update --no-cache \
+      bash \
       binutils-gold \
       build-base \
       curl \
@@ -10,9 +11,10 @@ RUN apk add --update --no-cache \
       g++ \
       gcc \
       git \
+      less \
       libstdc++ \
       libffi-dev \
-      libc-dev \ 
+      libc-dev \
       linux-headers \
       libxml2-dev \
       libxslt-dev \
@@ -26,7 +28,7 @@ RUN apk add --update --no-cache \
 
 RUN gem install bundler -v 2.1.4
 
-WORKDIR /app
+WORKDIR /myapp
 
 COPY Gemfile Gemfile.lock ./
 
@@ -34,6 +36,6 @@ RUN bundle config build.nokogiri --use-system-libraries
 
 RUN bundle check || bundle install
 
-COPY . ./ 
+COPY . ./
 
 ENTRYPOINT ["./entrypoints/docker-entrypoint.sh"]

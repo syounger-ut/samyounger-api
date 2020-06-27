@@ -4,6 +4,8 @@ class UserSerializer < ActiveModel::Serializer
              :full_name, :email, :avatar_url
 
   def avatar_url
+    return unless object.avatar.attached?
+
     rails_blob_path(object.avatar, only_path: true)
   end
 
